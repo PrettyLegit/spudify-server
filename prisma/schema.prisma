@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
@@ -13,3 +13,8 @@ generator client {
 }
 
 
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
