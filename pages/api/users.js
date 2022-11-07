@@ -1,6 +1,6 @@
 import prisma from "../../prisma/prisma";
 
-export default async function assetHandler(req, res) {
+export default async function requestHandler(req, res) {
   const { method } = req;
   const { RANDOM_SHA } = process.env;
   const { authorization } = req.headers;
@@ -11,7 +11,7 @@ export default async function assetHandler(req, res) {
 
   switch (method) {
     case "GET":
-      return await getUsers();
+      return await getUsers(req, res);
     default:
       return res
         .status(405)
@@ -26,8 +26,9 @@ async function getUsers(req, res) {
     return res.status(200).json(users, { success: true });
   } catch (e) {
     console.error("Request error", e);
-    return res
-      .status(500)
-      .json({ error: "Error fetching users", success: false });
+    return res.status(500).json({
+      error: `Error fetching users`,
+      success: false,
+    });
   }
 }
