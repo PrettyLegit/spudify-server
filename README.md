@@ -32,3 +32,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# running the database instance
+
+<db> <branch>
+pscale connect spudify dev --port 3309
+
+# running a gui of the orm
+
+npx prisma studio --port 5555
+
+# useful prisma commands
+
+npx prisma db push
+
+# useful planetscale commands
+
+https://planetscale.com/docs/reference/shell
+pscale shell <DATABASE_NAME> <BRANCH_NAME> <FLAG>
