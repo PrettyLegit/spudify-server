@@ -12,6 +12,8 @@ export default async function requestHandler(req, res) {
   switch (method) {
     case "GET":
       return await getUsers(req, res);
+    case "DELETE":
+      return await deleteUsers(req, res);
     default:
       return res
         .status(405)
@@ -28,6 +30,21 @@ async function getUsers(req, res) {
     console.error("Request error", e);
     return res.status(500).json({
       error: `Error fetching users`,
+      success: false,
+    });
+  }
+}
+
+// WARNING: This will delete all users in the database
+// A delete request to /api/users will delete all users
+async function deleteUsers(req, res) {
+  try {
+    const users = await prisma.user.deleteMany();
+    return res.status(200).json(users, { success: true });
+  } catch (e) {
+    console.error("Request error", e);
+    return res.status(500).json({
+      error: `Error deleting users`,
       success: false,
     });
   }
