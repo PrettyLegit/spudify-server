@@ -2,20 +2,32 @@ import prisma from "../../prisma/prisma";
 
 export default async function assetHandler(req, res) {
   const { method } = req;
+  const { RANDOM_SHA } = process.env;
+  const { authorization } = req.headers;
+
+  if (authorization !== `Bearer ${RANDOM_SHA}`) {
+    return res.status(401).json({ error: "Unauthorized", success: false });
+  }
 
   switch (method) {
     case "GET":
-      try {
-        const users = await prisma.user.findMany();
-        res.status(200).json(users);
-      } catch (e) {
-        console.error("Request error", e);
-        res.status(500).json({ error: "Error fetching users" });
-      }
-      break;
+      return await getUsers();
     default:
-      res.setHeader("Allow", ["GET"]);
-      res.status(405).end(`Method ${method} Not Allowed`);
-      break;
+      return res
+        .status(405)
+        .json({ error: "Method not allowed", success: false });
+  }
+}
+
+// A get request to /api/users will return all users
+async function getUsers(req, res) {
+  try {
+    const users = await prisma.user.findMany();
+    return res.status(200).json(users, { success: true });
+  } catch (e) {
+    console.error("Request error", e);
+    return res
+      .status(500)
+      .json({ error: "Error fetching users", success: false });
   }
 }
