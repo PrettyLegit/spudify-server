@@ -36,7 +36,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # running the database instance
 
 <db> <branch>
-pscale connect spudify dev --port 3309
+pscale connect spudify dev --port 3306
 
 # running a gui of the orm
 
