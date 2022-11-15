@@ -89,22 +89,22 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@prisma/client@^4.5.0":
-  "integrity" "sha512-B2cV0OPI1smhdYUxsJoLYQLoMlLH06MUxgFUWQnHodGMX98VRVXKmQE/9OcrTNkqtke5RC+YU24Szxd04tZA2g=="
-  "resolved" "https://registry.npmjs.org/@prisma/client/-/client-4.5.0.tgz"
-  "version" "4.5.0"
+"@prisma/client@^4.6.1":
+  "integrity" "sha512-M1+NNrMzqaOIxT7PBGcTs3IZo7d1EW/+gVQd4C4gUgWBDGgD9AcIeZnUSidgWClmpMSgVUdnVORjsWWGUameYA=="
+  "resolved" "https://registry.npmjs.org/@prisma/client/-/client-4.6.1.tgz"
+  "version" "4.6.1"
   dependencies:
-    "@prisma/engines-version" "4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452"
+    "@prisma/engines-version" "4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32"
 
-"@prisma/engines-version@4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452":
-  "integrity" "sha512-o7LyVx8PPJBLrEzLl6lpxxk2D5VnlM4Fwmrbq0NoT6pr5aa1OuHD9ZG+WJY6TlR/iD9bhmo2LNcxddCMr5Rv2A=="
-  "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452.tgz"
-  "version" "4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452"
+"@prisma/engines-version@4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32":
+  "integrity" "sha512-HUCmkXAU2jqp2O1RvNtbE+seLGLyJGEABZS/R38rZjSAafAy0WzBuHq+tbZMnD+b5OSCsTVtIPVcuvx1ySxcWQ=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32.tgz"
+  "version" "4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32"
 
-"@prisma/engines@4.5.0":
-  "integrity" "sha512-4t9ir2SbQQr/wMCNU4YpHWp5hU14J2m3wHUZnGJPpmBF8YtkisxyVyQsKd1e6FyLTaGq8LOLhm6VLYHKqKNm+g=="
-  "resolved" "https://registry.npmjs.org/@prisma/engines/-/engines-4.5.0.tgz"
-  "version" "4.5.0"
+"@prisma/engines@4.6.1":
+  "integrity" "sha512-3u2/XxvxB+Q7cMXHnKU0CpBiUK1QWqpgiBv28YDo1zOIJE3FCF8DI2vrp6vuwjGt5h0JGXDSvmSf4D4maVjJdw=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines/-/engines-4.6.1.tgz"
+  "version" "4.6.1"
 
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg=="
@@ -1390,12 +1390,12 @@
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   "version" "1.2.1"
 
-"prisma@*", "prisma@^4.5.0":
-  "integrity" "sha512-9Aeg4qiKlv9Wsjz4NO8k2CzRzlvS3A4FYVJ5+28sBBZ0eEwbiVOE/Jj7v6rZC1tFW2s4GSICQOAyuOjc6WsNew=="
-  "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.5.0.tgz"
-  "version" "4.5.0"
+"prisma@*", "prisma@^4.6.1":
+  "integrity" "sha512-BR4itMCuzrDV4tn3e2TF+nh1zIX/RVU0isKtKoN28ADeoJ9nYaMhiuRRkFd2TZN8+l/XfYzoRKyHzUFXLQhmBQ=="
+  "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.6.1.tgz"
+  "version" "4.6.1"
   dependencies:
-    "@prisma/engines" "4.5.0"
+    "@prisma/engines" "4.6.1"
 
 "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="

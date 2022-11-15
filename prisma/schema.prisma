@@ -2,19 +2,45 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DEV_DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
 }
 
-
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  firstName  String     @default("John")
+  lastName   String     @default("Doe")
+  dateJoined DateTime   @default(now())
+  Playlist   Playlist[]
+}
+
+model Playlist {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  songs       Song[]
+}
+
+model Song {
+  id         Int      @id @default(autoincrement())
+  artist     String
+  album      String
+  albumImage String
+  songName   String
+  songUri    String
+  duration   Int
+  dateAdded  DateTime @default(now())
+  playlist   Playlist @relation(fields: [playlistId], references: [id])
+  playlistId Int
 }

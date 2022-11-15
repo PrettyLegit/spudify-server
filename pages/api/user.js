@@ -1,4 +1,5 @@
-import prisma from "../../prisma/prisma";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 export default async function requestHandler(req, res) {
   const { method } = req;
@@ -52,7 +53,8 @@ async function createUser(req, res) {
     const user = await prisma.user.create({
       data: {
         email: body.email,
-        name: body.name,
+        firstName: body.firstName,
+        lastName: body.lastName,
       },
     });
     return res.status(200).json(user, { success: true });

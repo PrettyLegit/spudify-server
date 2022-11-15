@@ -44,6 +44,8 @@ npx prisma studio --port 5555
 
 # useful prisma commands
 
+npx prisma format
+npx prisma generate
 npx prisma db push
 
 # useful planetscale commands
