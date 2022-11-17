@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+If you are on the MAIN branch then use the env value called "DATABASE_URL" otherwise use "DEV_DATABASE_URL" for the DEVELOP branch.
+
 First, npm i or yarn install
 
 Second,
