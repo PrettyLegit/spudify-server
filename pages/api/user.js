@@ -76,7 +76,8 @@ async function updateUser(req, res) {
         email: body.email,
       },
       data: {
-        name: body.name,
+        firstName: body.firstName,
+        lastName: body.lastName,
       },
     });
     return res.status(200).json(user, { success: true });
