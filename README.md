@@ -30,6 +30,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 # Running the database instance
 
 pscale connect <db> <branch> --port 3306
+
 pscale connect spudify dev --port 3306
 
 # Useful planetscale commands
