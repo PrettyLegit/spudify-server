@@ -28,50 +28,19 @@ export default async function requestHandler(req, res) {
 
 // A get request to /api/user will returns a specific user
 async function getUser(req, res) {
-  const { spotifyId } = req.query;
+  const { email } = req.query;
 
   try {
     const user = await prisma.user.findUnique({
       where: {
-        spotifyId: spotifyId,
+        email: email,
       },
     });
     return res.status(200).json(user, { success: true });
   } catch (e) {
     console.error("Request error", e);
     return res.status(500).json({
-      error: `Error fetching user with spotifyId: ${req.query.spotifyId}`,
-      success: false,
-    });
-  }
-}
-
-// Check if a user exists in the database
-// If the user exists, return the user
-// If the user does not exist, create the user and return the user
-export async function getUserOrCreate(spotifyId, name) {
-  try {
-    const user = await prisma.user.findUnique({
-      where: {
-        spotifyId: spotifyId,
-      },
-    });
-
-    if (user) {
-      return user;
-    } else {
-      const newUser = await prisma.user.create({
-        data: {
-          spotifyId: spotifyId,
-          name: name,
-        },
-      });
-      return res.status(200).json(newUser, { success: true });
-    }
-  } catch (e) {
-    console.error("Request error", e);
-    return res.status(500).json({
-      error: `Error fetching user with spotifyId: ${spotifyId}`,
+      error: `Error fetching user with email: ${req.query.email}`,
       success: false,
     });
   }
@@ -83,27 +52,28 @@ async function createUser(req, res) {
   try {
     const user = await prisma.user.create({
       data: {
-        spotifyId: body.spotifyId,
-        name: body.name,
+        email: body.email,
+        firstName: body.firstName,
+        lastName: body.lastName,
       },
     });
     return res.status(200).json(user, { success: true });
   } catch (e) {
     console.error("Request error", e);
     return res.status(500).json({
-      error: `Error creating user with spotifyId: ${req.body.spotifyId}`,
+      error: `Error creating user with email: ${req.body.email}`,
       success: false,
     });
   }
 }
 
-// A update request to /api/user that will update a user given at an spotifyId
+// A update request to /api/user that will update a user given at an email
 async function updateUser(req, res) {
   const body = req.body;
   try {
     const user = await prisma.user.update({
       where: {
-        spotifyId: body.spotifyId,
+        email: body.email,
       },
       data: {
         name: body.name,
@@ -113,7 +83,7 @@ async function updateUser(req, res) {
   } catch (e) {
     console.error("Request error", e);
     return res.status(500).json({
-      error: `Error updating user with spotifyId: ${req.body.spotifyId}`,
+      error: `Error updating user with email: ${req.body.email}`,
       success: false,
     });
   }
@@ -125,14 +95,14 @@ async function deleteUser(req, res) {
   try {
     const user = await prisma.user.delete({
       where: {
-        spotifyId: body.spotifyId,
+        email: body.email,
       },
     });
     return res.status(200).json(user, { success: true });
   } catch (e) {
     console.error("Request error", e);
     return res.status(500).json({
-      error: `Error deleting user with spotifyId: ${req.body.spotifyId}`,
+      error: `Error deleting user with email: ${req.body.email}`,
       success: false,
     });
   }

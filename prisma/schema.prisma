@@ -14,8 +14,9 @@ generator client {
 
 model User {
   id         Int        @id @default(autoincrement())
-  spotifyId  String     @unique
-  name       String     @unique
+  email      String     @unique
+  firstName  String     @default("John")
+  lastName   String     @default("Doe")
   dateJoined DateTime   @default(now())
   Playlist   Playlist[]
 }
